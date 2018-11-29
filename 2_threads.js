@@ -2,7 +2,7 @@
 // 4 threads pass 4 calls to 4 cpus on the machine and all of them complete at roughly the same time
 // 5th one takes double the time to complete unless the threadpool size is increased
 
-// process.env.UV_THREADPOOL_SIZE = 5;
+process.env.UV_THREADPOOL_SIZE = 5;
 
 const crypto = require('crypto');
 
@@ -25,4 +25,20 @@ crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
 
 crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
   console.log('5:',Date.now() - start);
+});
+
+crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+  console.log('6:',Date.now() - start);
+});
+
+crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+  console.log('7:',Date.now() - start);
+});
+
+crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+  console.log('8:',Date.now() - start);
+});
+
+crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+  console.log('9:',Date.now() - start);
 });
